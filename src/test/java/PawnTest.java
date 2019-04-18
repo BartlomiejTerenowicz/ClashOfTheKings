@@ -16,7 +16,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, 2);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, 0);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -40,7 +40,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(-1, 2);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(8, 8);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, -1);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -76,7 +76,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, 8);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
     }
 
     @Test
@@ -88,7 +88,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, 2);
 
         // assert
-        assertEquals(move, true);
+        assertTrue(move);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class PawnTest {
         boolean move = pawn.makeMove(0, 3);
 
         // assert
-        assertEquals(move, true);
+        assertTrue(move);
     }
 
     @Test
@@ -113,6 +113,19 @@ public class PawnTest {
         move = pawn.makeMove(0, 4);
 
         // assert
-        assertEquals(move, false);
+        assertFalse(move);
+    }
+
+    @Test
+    public void makeTwoMove() throws Exception {
+        // arrange
+        Pawn pawn = new Pawn(0, 1, Colors.WHITE);
+
+        // act
+        boolean move = pawn.makeMove(0, 2);
+        move = pawn.makeMove(0, 4);
+
+        // assert
+        assertFalse(move);
     }
 }
