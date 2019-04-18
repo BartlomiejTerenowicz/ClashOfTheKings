@@ -23,10 +23,15 @@ public class Pawn {
             if (this.x == xMove) {
                 if ((yMove - y) == 1) {
                     // is field control by enemy - TO Do
+                    changePosition(xMove,yMove);
+                    if (!isFirstMove()) {
+                        makeFirstMove();
+                    }
                     return true;
                 } else if ((yMove - y) == 2) {
                     if (!isFirstMove()) {
                         makeFirstMove();
+                        changePosition(xMove,yMove);
                         return true;
                     }
                 }
@@ -35,6 +40,11 @@ public class Pawn {
 
         }
         return false;
+    }
+
+    public void changePosition(int xMove, int yMove) {
+        this.x = xMove;
+        this.y = yMove;
     }
 
     private boolean isFirstMove() {
@@ -50,7 +60,7 @@ public class Pawn {
             return true;
         }
 
-        if ((xMove < 0) || ((yMove < 0))) {
+        if (xMove < 0 || yMove < 0) {
             return true;
         }
 
